@@ -1,5 +1,7 @@
 # iDum - Intelligent Document Understanding Machine
 
+![iDUM — Robot generated using Adobe Firefly](https://miro.medium.com/v2/resize:fit:720/format:webp/1*QozynpYfycFX-g5OJsGLsQ.png)
+
 ## Introduction:
 iDUM (Intelligent Document Understanding Machine) is an innovative solution that leverages FastAPI, PaddleOCR, and OpenAI to automatically extract key-value information from documents posted via the API endpoint. This blog will explore the functionality and architecture of iDUM, which provides a JSON output with extracted information in a structured and easily accessible format.
 
