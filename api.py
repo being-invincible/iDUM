@@ -18,7 +18,7 @@ os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
 ocr = PaddleOCR(use_angle_cls=True, lang='en')
 # img = "./page-0.jpg"
-openai.api_key = "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"
+openai.api_key = "<your-openai-key>"
 
 # To control the randomness and creativity of the generated text by an LLM, use temperature = 0.0
 chat = ChatOpenAI(temperature=0.0, openai_api_key=openai.api_key)
