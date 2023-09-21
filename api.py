@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 import os
 from paddleocr import PaddleOCR, draw_ocr
-import openai
 import json
 import fitz
 import shutil
@@ -14,10 +13,10 @@ from langchain.prompts import ChatPromptTemplate
 import pandas as pd
 
 # To eliminate KMP Kernel Error
-os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
+# os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
 ocr = PaddleOCR(use_angle_cls=True, lang='en')
-# img = "./page-0.jpg"
+
 openai.api_key = "<your-openai-key>"
 
 # To control the randomness and creativity of the generated text by an LLM, use temperature = 0.0
@@ -60,7 +59,12 @@ def upload(pdf):
     os.makedirs(f'/{str(pdffolder)}', exist_ok=True) 
 
     # Creating an S3 access object
-    obj = boto3.client("s3")
+    obj = boto3.client(
+        "s3",
+        # aws_access_key_id=ACCESS_KEY,
+        # aws_secret_access_key=SECRET_KEY,
+        # aws_session_token=SESSION_TOKEN
+                      )
     # Downloading a csv file 
     # from S3 bucket to local folder
     obj.download_file(
